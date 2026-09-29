@@ -1,0 +1,17 @@
+---
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('blog');
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Blog</title>
+	</head>
+	<body>
+		<ul>
+			{posts.map((post) => <li>{post.id}: {post.data.title}</li>)}
+		</ul>
+	</body>
+</html>
